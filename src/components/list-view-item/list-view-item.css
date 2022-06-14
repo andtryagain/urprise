@@ -1,0 +1,18 @@
+.item-cntnr {
+    border-radius: 10px;
+    min-height: 180px;
+    padding: 20px;
+    display: flex;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.item-cntnr-img {
+    text-align: center;
+    height: 140px;
+    width: 140px;
+}
+
+.img-cntnr {
+    height: 140px;
+}
