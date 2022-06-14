@@ -19,7 +19,9 @@ const styles = StyleSheet.create({
         marginRight: 10,
         height: 120,
         width: 120,
-        backgroundColor: 'yellow'
+    }, img: {
+        objectFit: 'contain'
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
     }, textContainer : {
         flex: 1,
         fontFamily: 'IBMPlexMono Regular'
@@ -66,7 +68,7 @@ const DocumentListItem = ({item}) => {
 
     return <View style={styles.item}>
         <View style={styles.imgContainer}>
-            <Image src={itemImage}></Image>
+            <Image style={styles.img}src={itemImage}></Image>
         </View>
         <View style={styles.textContainer}>
             <Text style={styles.itemName}>{item.name}</Text>
