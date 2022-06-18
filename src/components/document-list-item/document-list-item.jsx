@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     }, imgContainer: {
         marginRight: 10,
         height: 120,
-        width: 120,
+        width: 120
     }, img: {
         objectFit: 'contain'
         // https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
@@ -61,7 +61,9 @@ const DocumentListItem = ({item}) => {
     service.getImage(item.image)
         .then(
             responce => {
-                setItemImage(`data:image/jpeg;base64,${responce.base64}`)
+                // parse b64
+                const prefix = service.getBase64ImageFormat(responce)
+                setItemImage(`${prefix}${responce}`)
             }
         )
     })
