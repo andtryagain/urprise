@@ -6,12 +6,8 @@ import ListsItem from '../lists-item';
 import './lists.css'
 
 const Lists = ({ lists }) => {
-
     const elements = lists.map((list, index) => {
-        return <ListsItem 
-        key={index} 
-        list={list}
-        />
+        return <ListsItem key={index} list={list}/>
     });
 
     return <div>
@@ -23,7 +19,7 @@ const Lists = ({ lists }) => {
 
 const mapStateToProps = (state) => {
     return {
-        lists: state
+        lists: state.lists
     };
 };
 
