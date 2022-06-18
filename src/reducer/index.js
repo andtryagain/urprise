@@ -1,4 +1,7 @@
-const initialState = [
+const initialState = 
+{
+   lists: 
+   [
     {
         id: 'd926rplp', 
         title: 'FIRST_LIST',
@@ -33,26 +36,29 @@ const initialState = [
             }
         ]
     }
-];
+   ]
+};
 
-const reducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_LIST':
-            return [...state, action.payload]
+            return { lists: [...state.lists, action.payload] }
         case 'EDIT_LIST':
             return [ 
-                ...state.slice(0, state.findIndex(obj => obj.id === action.payload.id)),
+                ...state.lists.slice(0, state.lists.findIndex(obj => obj.id === action.payload.id)),
                 action.payload, 
-                ...state.slice(state.findIndex(obj => obj.id === action.payload.id) + 1)
+                ...state.lists.slice(state.lists.findIndex(obj => obj.id === action.payload.id) + 1)
             ]
         case 'REMOVE_LIST':
-            return [ 
-                ...state.slice(0, state.findIndex(obj => obj.id === action.payload)), 
-                ...state.slice(state.findIndex(obj => obj.id === action.payload) + 1)
-            ]
+            return { 
+                lists : [ 
+                    ...state.lists.slice(0, state.lists.findIndex(obj => obj.id === action.payload)), 
+                    ...state.lists.slice(state.lists.findIndex(obj => obj.id === action.payload) + 1)
+                ]
+            }
         default:
             return state
     }
 };
 
-export default reducer;
+export default userReducer;
