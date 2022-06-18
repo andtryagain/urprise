@@ -41,7 +41,7 @@ const DocumentList = ({lists}) => {
 
 const mapStateToProps = (state) => {
     return {
-        lists: state
+        lists: state.lists
     };
 };
 

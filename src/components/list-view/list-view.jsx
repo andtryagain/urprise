@@ -17,7 +17,6 @@ const ListView = ({ lists }) => {
         <h2>{viewedList.title}</h2>
         <h4>list #{viewedList.id}</h4>
         {elements}
-        <button className="btn">try to pdf</button>
     </div>
     </div> 
     
@@ -25,7 +24,7 @@ const ListView = ({ lists }) => {
 
 const mapStateToProps = (state) => {
     return {
-        lists: state
+        lists: state.lists
     };
 };
 
