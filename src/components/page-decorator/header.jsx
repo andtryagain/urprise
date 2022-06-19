@@ -6,7 +6,7 @@ const Header = ({button}) => {
     const [emoji, setEmoji] = useState('')
 
     useEffect(() => {
-        const emojiArr = ['🥳','🎂', '🎉', '🎁']
+        const emojiArr = ['🥳','🎂', '🎉', '🎁', '🎊']
         setEmoji(emojiArr[Math.floor(Math.random()*emojiArr.length)])
     }, [])
 
