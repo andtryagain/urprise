@@ -55,17 +55,11 @@ Font.register({
 const DocumentListItem = ({item}) => {
 
     const [itemImage, setItemImage] = useState('')
-    const service = new Service();
+    const s = new Service();
 
     useEffect(() => {
-    service.getImage(item.image)
-        .then(
-            responce => {
-                // parse b64
-                const prefix = service.getBase64ImageFormat(responce)
-                setItemImage(`${prefix}${responce}`)
-            }
-        )
+        s.getImage(item.image)
+            .then( data => setItemImage(data))
     })
 
     return <View style={styles.item}>

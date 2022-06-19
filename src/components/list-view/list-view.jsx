@@ -1,8 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
-// import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
-import ListViewItem from "../list-view-item";
+import { useParams } from "react-router-dom"
+import { connect } from "react-redux"
+import ListViewItem from "../list-view-item"
 
 const ListView = ({ lists }) => {
     const {id} = useParams();
@@ -25,7 +23,7 @@ const ListView = ({ lists }) => {
 const mapStateToProps = (state) => {
     return {
         lists: state.lists
-    };
-};
+    }
+}
 
-export default connect(mapStateToProps)(ListView);
+export default connect(mapStateToProps)(ListView)
