@@ -1,16 +1,29 @@
-import './list-view-item.css'
+import { useState } from 'react';
 
-const ListViewItem = ({item}) => {
-    const { name, price, image, description } = item;
+import Service from '../../services';
+
+import './list-view-item.css'
+import b64_not_found_image from '../../base64_files'
+
+const ListViewItem = ({ item }) => {
+
+    const s = new Service()
+
+    const { name, price, description, image } = item;
+    const [imageSrc, setImageSrc] = useState(image);
+
+    const srcOnError = s.addPrefixToBase64Data(b64_not_found_image)    
+    
+    const onError = () => setImageSrc(srcOnError);
 
     return <div className='item-cntnr'>
         <div className='item-cntnr-img'>
-            <img 
+            <img
                 className='img-cntnr'
                 alt='item'
-                src={"dasdasd" + image}
-                onError="this.onerror=null;this.src='https://placeimg.com/200/300/animals';"
-            > 
+                src={imageSrc ? imageSrc : srcOnError }
+                onError={onError}
+            >
             </img>
         </div>
         <div className='ms-3'>
