@@ -1,4 +1,3 @@
-import React from 'react';
 import ButtonToForm from '../button-to-form';
 import Lists from '../lists';
 import Content from '../page-decorator/content';

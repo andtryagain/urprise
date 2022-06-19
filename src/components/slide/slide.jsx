@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Slide = ({ index, slide }) => {
     const isItemActive = index === 0 ? ' active' : '';
     return <div className={'carousel-item' + isItemActive}>

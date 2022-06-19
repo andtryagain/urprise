@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Header from '../page-decorator/header';
 import Content from '../page-decorator/content';
 import Footer from '../page-decorator/footer';
