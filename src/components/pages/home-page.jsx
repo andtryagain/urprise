@@ -20,7 +20,7 @@ const HomePage = () => {
             <Content>
                 <h1>create & share your wishlists</h1>
                 <Slider items={items}/>
-                <Instruction />
+                {/* <Instruction /> */}
             </Content>
             <Footer />
         </>
