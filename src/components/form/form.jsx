@@ -110,11 +110,16 @@ class Form extends Component {
                         onClick={onItemAdded}>
                         + item
                     </button>
-                    <button
-                        className="btn btn-outline-primary"
-                        type="submit">
-                        finish list
-                    </button>
+                    {
+                        this.state.title ? <button
+                            className="btn btn-outline-primary"
+                            type="submit">
+                            finish list
+                        </button> : <button
+                            className="btn disabled btn-danger">
+                            name list
+                        </button>
+                    }
                 </form>
             </div>
         </div>
