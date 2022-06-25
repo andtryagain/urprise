@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import Service from '../../services';
+import Service from '../../services'
 
 import './list-view-item.css'
 import b64_not_found_image from '../../base64_files'
@@ -9,12 +9,12 @@ const ListViewItem = ({ item }) => {
 
     const s = new Service()
 
-    const { name, price, description, image } = item;
-    const [imageSrc, setImageSrc] = useState(image);
+    const { name, price, description, image } = item
+    const [imageSrc, setImageSrc] = useState(image)
 
     const srcOnError = s.addPrefixToBase64Data(b64_not_found_image)    
     
-    const onError = () => setImageSrc(srcOnError);
+    const onImageError = () => setImageSrc(srcOnError)
 
     return <div className='item-cntnr'>
         <div className='item-cntnr-img'>
@@ -22,7 +22,7 @@ const ListViewItem = ({ item }) => {
                 className='img-cntnr'
                 alt='item'
                 src={imageSrc ? imageSrc : srcOnError }
-                onError={onError}
+                onError={onImageError}
             >
             </img>
         </div>
@@ -34,4 +34,4 @@ const ListViewItem = ({ item }) => {
     </div>
 }
 
-export default ListViewItem;
+export default ListViewItem
