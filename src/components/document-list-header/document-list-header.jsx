@@ -2,33 +2,38 @@ import { StyleSheet, Font, View, Text } from '@react-pdf/renderer'
 
 import dateFormat from 'dateformat'
 
-import IBMPlexMonoBold from '../../fonts/IBMPlexMono-Bold.ttf'
-import IBMPlexSemiBoldItalic from '../../fonts/IBMPlexMono-SemiBoldItalic.ttf'
-
+import UbuntuMonoRegular from '../../fonts/UbuntuMono-R.ttf'
+import UbuntuMonoRegularItalic from '../../fonts/UbuntuMono-RI.ttf'
+import UbuntuMonoBold from '../../fonts/UbuntuMono-B.ttf'
 
 const styles = StyleSheet.create({
     itemHeader: {
         marginLeft: 100
     }, itemTitle: {
-        fontFamily: 'IBMPlexMono Bold',
-        fontSize: 18
+        fontFamily: 'UbuntuMono Bold',
+        fontSize: 28
     }, itemID: {
-        fontFamily: 'IBMPlexMono SemiBoldItalic',
-        fontSize: 14
+        fontFamily: 'UbuntuMono Regular Italic',
+        fontSize: 20
     }, itemCreatedAt: {
-        fontFamily: 'IBMPlexMono SemiBoldItalic',
-        fontSize: 12
+        fontFamily: 'UbuntuMono Regular',
+        fontSize: 14
     }
 })
 
 Font.register({
-    family: 'IBMPlexMono Bold',
-    src: IBMPlexMonoBold
+    family: 'UbuntuMono Regular',
+    src: UbuntuMonoRegular
 });
 
 Font.register({
-    family: 'IBMPlexMono SemiBoldItalic',
-    src: IBMPlexSemiBoldItalic
+    family: 'UbuntuMono Regular Italic',
+    src: UbuntuMonoRegularItalic
+});
+
+Font.register({
+    family: 'UbuntuMono Bold',
+    src: UbuntuMonoBold
 });
 
 const DocumentListHeader = ({ title, id, created }) => {

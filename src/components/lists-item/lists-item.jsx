@@ -31,14 +31,14 @@ const ListsItem = ({ list, removeList }) => {
                 <Link to={`/document/${id}`}>
                     <button
                         className='btn btn-success'>
-                        <i className="fa-solid fa-file-arrow-down"></i>
+                        <i className='fa-solid fa-file-arrow-down'></i>
                     </button>
                 </Link>
                 <ButtonToForm editType editList={list} />
                 <button
                     className='btn btn-danger'
                     onClick={onRemove}>
-                    <i className="fa-solid fa-trash"></i>
+                    <i className='fa-solid fa-trash'></i>
                 </button>
             </div>
 

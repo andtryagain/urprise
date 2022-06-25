@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, Font, View, Image, Text } from '@react-pdf/renderer';
+import { useState, useEffect } from 'react'
+import { StyleSheet, Font, View, Image, Text } from '@react-pdf/renderer'
 
-import Service from '../../services';
+import Service from '../../services'
 
-import IBMPlexMonoRegular from '../../fonts/IBMPlexMono-Regular.ttf' 
-import IBMPlexMonoBold from '../../fonts/IBMPlexMono-Bold.ttf' 
-import IBMPlexSemiBoldItalic from '../../fonts/IBMPlexMono-SemiBoldItalic.ttf' 
+import UbuntuMonoRegular from '../../fonts/UbuntuMono-R.ttf'
+import UbuntuMonoRegularItalic from '../../fonts/UbuntuMono-RI.ttf'
+import UbuntuMonoBold from '../../fonts/UbuntuMono-B.ttf'
 
 const styles = StyleSheet.create({
     item: {
@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
         // https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
     }, textContainer : {
         flex: 1,
-        fontFamily: 'IBMPlexMono Regular'
+        fontFamily: 'UbuntuMono Regular'
     }, itemName : {
-        fontFamily: 'IBMPlexMono Bold',
-        fontSize: 12
+        fontFamily: 'UbuntuMono Bold',
+        fontSize: 14
     }, itemPrice : {
-        fontFamily: 'IBMPlexMono SemiBoldItalic',
+        fontFamily: 'UbuntuMono Regular Italic',
         fontSize: 8
     }, itemDescription : {
         marginTop: 10,
@@ -38,24 +38,24 @@ const styles = StyleSheet.create({
 })
 
 Font.register({
-    family: 'IBMPlexMono Regular',
-    src: IBMPlexMonoRegular
+    family: 'UbuntuMono Regular',
+    src: UbuntuMonoRegular
 });
 
 Font.register({
-    family: 'IBMPlexMono Bold',
-    src: IBMPlexMonoBold
+    family: 'UbuntuMono Regular Italic',
+    src: UbuntuMonoRegularItalic
 });
 
 Font.register({
-    family: 'IBMPlexMono SemiBoldItalic',
-    src: IBMPlexSemiBoldItalic
+    family: 'UbuntuMono Bold',
+    src: UbuntuMonoBold
 });
 
 const DocumentListItem = ({item}) => {
 
     const [itemImage, setItemImage] = useState('')
-    const s = new Service();
+    const s = new Service()
 
     useEffect(() => {
         s.getImage(item.image)
@@ -74,4 +74,4 @@ const DocumentListItem = ({item}) => {
     </View>
 }
 
-export default DocumentListItem;
+export default DocumentListItem
