@@ -11,15 +11,19 @@ class Form extends Component {
     state = {
         id: this.props.list.id,
         title: this.props.list.title,
+        created: null,
         items: this.props.list.items
     };
-
+    
     onFormClose = (e) => {
         this.props.onFormClose();
     };
 
     onTitleChange = (e) => {
-        this.setState({title: e.target.value});
+        this.setState({
+            title: e.target.value,
+            created: new Date().toISOString()
+        });
     } 
 
     onItemAdded = (e) => {
@@ -64,8 +68,13 @@ class Form extends Component {
     };
 
     onListFinished = (e) => {
-        e.preventDefault();
-        !this.props.edit ? this.props.addList(this.state) : this.props.editList(this.state)
+        e.preventDefault()
+        if (this.props.edit) {
+            this.props.editList(this.state)
+        } else {
+            console.log(this.state)
+            this.props.addList(this.state)
+        }
         this.props.onFormClose();
     };
 
@@ -74,7 +83,6 @@ class Form extends Component {
         
         const items = this.state.items.map((item, index) => {
             return <FormItem
-            onClick={console.log('dasdasd')} 
             key={index}
             item={item}
             onItemSubmitted={onItemSubmitted} 

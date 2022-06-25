@@ -17,7 +17,7 @@ const DocumentList = ({lists}) => {
 
     const { id } = useParams();
     const documentList = lists.find(x => x.id === id)
-    const { title, items } = documentList 
+    const { created, title, items } = documentList 
 
     const listItems = items.map(
         (item, index) => {
@@ -31,7 +31,8 @@ const DocumentList = ({lists}) => {
                 <Page size="A4" style={styles.page}>
                     <DocumentListHeader 
                         title={title} 
-                        id={id}/>
+                        id={id}
+                        created={created}/>
                     {listItems}
                 </Page>
             </Document>

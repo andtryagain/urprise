@@ -7,7 +7,7 @@ import './lists.css'
 const Lists = ({ lists }) => {
     const elements = lists.map((list, index) => {
         return <ListsItem key={index} list={list}/>
-    });
+    }).reverse();
 
     return <div>
             <ul className='ps-0 lists'>

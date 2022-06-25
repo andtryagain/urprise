@@ -64,7 +64,7 @@ const DocumentListItem = ({item}) => {
 
     return <View style={styles.item}>
         <View style={styles.imgContainer}>
-            <Image style={styles.img}src={itemImage}></Image>
+            <Image style={styles.img} src={itemImage}></Image>
         </View>
         <View style={styles.textContainer}>
             <Text style={styles.itemName}>{item.name}</Text>
