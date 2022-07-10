@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Form from '../form';
+import { useState } from 'react'
+import Form from '../form'
 
-import './button-to-form.css';
+import './button-to-form.css'
 
 const ButtonToForm = ({ editType, editList }) => {
     const [ isVisible, setVisibility ] = useState(false)
@@ -11,7 +11,7 @@ const ButtonToForm = ({ editType, editList }) => {
     }
 
     const onFormClose = () => {
-        setVisibility(!isVisible);
+        setVisibility(!isVisible)
     }
 
     const newList = {
@@ -20,24 +20,18 @@ const ButtonToForm = ({ editType, editList }) => {
         items: [{id: 0}]
     }
     
-    return !editType ?
-        <>
-            <button 
-                className='btn btn-outline-success btn-new-list'
-                onClick={ onClick }
-            >
-                +
-            </button>
-            {isVisible && <Form list={newList} onFormClose={onFormClose}/>}</>
-        :
-        <>
-            <button className='btn btn-warning'
-                onClick={ onClick }>
+    return editType ?
+        <><button className='btn btn-warning' onClick={onClick}>
                 <i className="fa-solid fa-pen"></i>
             </button>
             {isVisible && <Form edit list={editList} onFormClose={onFormClose}/>}
+        </> :
+        <><button 
+            className='btn btn-outline-success btn-new-list'
+            onClick={onClick}
+        >+</button>
+            {isVisible && <Form list={newList} onFormClose={onFormClose}/>}
         </>
-    
-};
+}
 
 export default ButtonToForm;
