@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { StyleSheet, Font, View, Image, Text } from '@react-pdf/renderer'
+import { StyleSheet, Font, View, Image, Text, Link } from '@react-pdf/renderer'
 
 import Service from '../../services'
 
@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
     }, itemDescription : {
         marginTop: 10,
         fontSize: 10
+    }, linkName : {
+        color: 'black',
+        textDecoration: 'none'
     }
 })
 
@@ -67,8 +70,14 @@ const DocumentListItem = ({item}) => {
             <Image style={styles.img} src={itemImage}></Image>
         </View>
         <View style={styles.textContainer}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemPrice}>{item.price}</Text>
+            <Text style={styles.itemName}>
+                <Link 
+                    src={item.link} 
+                    style={styles.linkName}>
+                    {item.name}
+                </Link>
+            </Text>
+            <Text style={styles.itemPrice}>{item.price} $</Text>
             <Text style={styles.itemDescription}>{item.description}</Text>
         </View>
     </View>
