@@ -1,6 +1,9 @@
-import { Component } from 'react';
+import { Component } from 'react'
 
-import './form-item.css';
+import Service from '../../services'
+
+import b64_not_found_image from '../../base64_files'
+import './form-item.css'
 
 export default class FormItem extends Component {
 
@@ -13,6 +16,9 @@ export default class FormItem extends Component {
         description: this.props.item.description,
         image: this.props.item.image
     }
+
+    s = new Service()
+    srcOnError = this.s.addPrefixToBase64Data(b64_not_found_image)
 
     onChange = (e) => {
         this.setState({isSubmitted: false});
@@ -61,15 +67,24 @@ export default class FormItem extends Component {
         </input>
     }
 
+    onImageError = () => {
+        this.setState({image: this.srcOnError})
+    }
+
     render() {
 
-        const { inputField, onChange, onRemove, onSubmit, state } = this;
+        const { inputField, onChange, onRemove, onSubmit, onImageError, state } = this;
         const { name, price, image, link, description, isSubmitted } = state;
 
         return (
             <div className='form-item mb-2'>
                 {image ? <div className='mb-2'>
-                    <img className='item-image' src={image} alt='item'></img>
+                    <img 
+                        className='item-image'
+                        src={image ? image : this.srcOnError}
+                        alt='item'
+                        onError={onImageError}
+                    ></img>
                 </div> : <></>}
                 {inputField('image', image)}
                 {inputField('name', name)}

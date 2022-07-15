@@ -1,7 +1,7 @@
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { removeList } from '../actions';
-import ButtonToForm from '../button-to-form';
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { removeList } from '../actions'
+import ButtonToForm from '../button-to-form'
 import './lists-item.css'
 
 const ListsItem = ({ list, removeList }) => {
@@ -29,25 +29,22 @@ const ListsItem = ({ list, removeList }) => {
             </ul>
             <div className='d-grid gap-2 d-md-flex justify-content-md-end'>
                 <Link to={`/document/${id}`}>
-                    <button
-                        className='btn btn-success'>
-                        <i className="fa-solid fa-file-arrow-down"></i>
+                    <button className='w-100 btn btn-success'>
+                        <i className='fa-solid fa-file-arrow-down'></i>
                     </button>
                 </Link>
                 <ButtonToForm editType editList={list} />
-                <button
-                    className='btn btn-danger'
-                    onClick={onRemove}>
-                    <i className="fa-solid fa-trash"></i>
+                <button className='btn btn-danger' onClick={onRemove}>
+                    <i className='fa-solid fa-trash'></i>
                 </button>
             </div>
 
         </div>
     </li>
-};
+}
 
 const mapDispatchToProps = {
     removeList
 }
 
-export default connect(null, mapDispatchToProps)(ListsItem);
+export default connect(null, mapDispatchToProps)(ListsItem)
